@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.phonebook.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;

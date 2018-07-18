@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.phonebook.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

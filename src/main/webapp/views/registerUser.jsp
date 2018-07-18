@@ -29,12 +29,6 @@
 </div>
 </div>
 <div class="form-group">
-<label for="password" class="col-md-3 control-label">Confirm Password</label>
-<div class="col-md-9">
-<input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
-</div>
-</div>
-<div class="form-group">
 <!-- Button -->                                        
 <div class="col-md-offset-3 col-md-9">
 <button id="btn-signup" type="submit" class="btn btn-info btn-block"><i class="icon-hand-right"></i> &nbsp Sign Up</button>

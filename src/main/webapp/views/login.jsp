@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+       <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html >
 <html>
 <jsp:include page="../layout/header.jsp"></jsp:include>
@@ -12,6 +14,7 @@
 <h3 class="panel-title">Please Sign In</h3>
 </div>
 <div class="panel-body">
+<form:errors cssStyle="color:red;" path="user.*" />
 <form role="form" action="doLogin" method="post">
 <fieldset>
 <div class="form-group">
@@ -24,6 +27,7 @@
 <input type="submit" value="Login" class="btn btn-lg btn-success btn-block"/>
 </fieldset>
 </form>
+<a href="registerUser" class="text-center new-account">Create an account </a>
 </div>
 </div>
 </div>

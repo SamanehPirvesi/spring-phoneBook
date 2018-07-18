@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>company</title>
+    <title>phonebook</title>
 
     <!-- Bootstrap Core CSS -->
   

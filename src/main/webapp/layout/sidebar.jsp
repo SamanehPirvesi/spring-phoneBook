@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">company</a>
+                <a class="navbar-brand" href="#">phonebook</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -39,18 +39,18 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                       
+                     
                         <li>
-                            <a href="<%=request.getContextPath()%>/userPortal/userHome.jsp"><i class="fa fa-home fa-fw"></i> Home</a>
+                            <a href="<%=request.getContextPath()%>/views/userHome.jsp"><i class="fa fa-home fa-fw"></i> Home</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> contacts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<%=request.getContextPath()%>/phonebook/registerContact.jsp">create new contact</a>
+                                    <a href="<%=request.getContextPath()%>registerContact/${user.username}">create new contact</a>
                                 </li>
                                 <li>
-                                    <a href="<%=request.getContextPath()%>/phonebook/listOfContacts.jsp">contact's list</a>
+                                    <a href="<%=request.getContextPath()%>listOfContacts/${user.username}">contact's list</a>
                                 </li>
                                 
                             </ul>

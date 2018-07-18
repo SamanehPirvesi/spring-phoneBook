@@ -1,12 +1,12 @@
-package com.example.service;
+package com.example.phonebook.service;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.model.Contact;
-import com.example.repository.ContactRepository;
+import com.example.phonebook.model.Contact;
+import com.example.phonebook.repository.ContactRepository;
 
 @Service
 public class ContactService {
@@ -22,12 +22,12 @@ public class ContactService {
 	public Contact getContactByName(String name) {
 		return contactRepository.findByName(name);
 	}
-	public void updateContactById(long id , String name ){
-		contactRepository.updateById(id, name);
-		}
-	public void updateContactTellNumberById(long id , String tell) {
-		contactRepository.updateTellNumberById(id, tell);
-	}
+//	public void updateContactById(long id , String name ){
+//		contactRepository.updateById(id, name);
+//		}
+//	public void updateContactTellNumberById(long id , String tell) {
+//		contactRepository.updateTellNumberById(id, tell);
+//	}
 	public void deleteContact(Contact contact) {
 		contactRepository.delete(contact);
 	}
