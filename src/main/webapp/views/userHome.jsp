@@ -10,8 +10,7 @@
 <!-- Page Content -->
 <div id="page-wrapper">
 <div class="container-fluid">
-welcome ${user.username}
-
+welcome ${username}
 </div>
 <!-- /.container-fluid -->
 </div>

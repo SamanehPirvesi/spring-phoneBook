@@ -27,7 +27,7 @@
 <div class="row">
 <div class="col-lg-6">
 <div class="panel panel-default">
-<div class="panel-heading">Edit Contacts:</div>
+<div class="panel-heading"> Contacts:</div>
 <!-- /.panel-heading -->
 <div class="panel-body">
 <div class="table-responsive">
@@ -45,14 +45,12 @@
 <c:set var="i" value="1" scope="page" ></c:set>
 <c:forEach items="${user.listContact}" var="u">
 <tr>
-<form method="post" action="/doDeleteContact">
-<input type="hidden" name="contactid" value="${u.contact_id}"/>
-<input type="hidden" name="tell" value="${u.tellNumber}"/>
+<form method="post" action="/doDeleteContact/${u.name}">
  <td><c:out value="${i}" /></td>
  <td ><c:out value="${u.name}" /></td>
  <td><c:out value="${u.tellNumber}" /></td>
- <td> <button type="submit" class="fa fa-edit" formaction="./edit.js" id="edit"></button>
-<button type="submit" class="fa fa-trash-o" ></button>
+ <td>
+ <button type="submit" class="fa fa-trash-o" ></button>
  </td>  
  </form>                      
  </tr>

@@ -47,8 +47,9 @@ public class PhoneBookController {
 		User readedUser = userService.getUserByUserName(u.getUsername());
 		ModelAndView model =null;
 		if( readedUser != null && readedUser.getPassword().equals(u.getPassword())) {
-			u.setUserId(readedUser.getUserId());
 			model=new ModelAndView("userHome");
+			model.addObject("username",u.getUsername());
+			
 			
 		}else { 
 			
@@ -59,29 +60,18 @@ public class PhoneBookController {
 		return model;
 	}
 	
-	@RequestMapping(value="/registerContact/{username}", method=RequestMethod.GET)
-	public ModelAndView registerContact(@PathVariable("username") String username) {
-		ModelAndView model=new ModelAndView("registerContact");
+	@RequestMapping(value="/userPortal/{username}", method=RequestMethod.GET)
+	public ModelAndView userPortal(@PathVariable("username") String username) {
+		ModelAndView model=new ModelAndView("userHome");
 		model.addObject("username", username);
 		return model;
 	}
 	
-	@PostMapping("/doRegisterContact/{username}")
-	public ModelAndView doRegisterUser(@PathVariable("username") String username,@ModelAttribute("contact") Contact c) {		
-		User readedUser = userService.getUserByUserName(username);
-		readedUser.addContact(c);
-		c.setUser(readedUser);
-		contactService.createContact(c);
-		ModelAndView model=new ModelAndView("listOfContacts");
-		model.addObject("user",readedUser);
-		return model;
-	}
 	
-		@RequestMapping(value="/listOfContacts/{username}", method=RequestMethod.GET)
-	public ModelAndView listOfContact(@PathVariable("username") String username) {
-		ModelAndView model=new ModelAndView("listOfContacts");
-		User readedUser = userService.getUserByUserName(username);
-		model.addObject("user",readedUser);
-		return model;
-}
+		@RequestMapping(value="/doLogout", method=RequestMethod.GET)
+		public ModelAndView doLogout() {
+			ModelAndView model=new ModelAndView("login");
+					
+			return model;
+		}
 }

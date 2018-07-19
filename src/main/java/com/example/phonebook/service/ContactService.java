@@ -31,8 +31,8 @@ public class ContactService {
 	public void deleteContact(Contact contact) {
 		contactRepository.delete(contact);
 	}
-	public boolean deleteContactByName(String name) {
-		return contactRepository.deleteByName(name);
+	public void deleteContactByName(String name) {
+		 contactRepository.deleteByName(name);
 	}
 
 }
