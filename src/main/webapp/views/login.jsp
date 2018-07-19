@@ -15,7 +15,7 @@
 </div>
 <div class="panel-body">
 <form:errors cssStyle="color:red;" path="user.*" />
-<form role="form" action="doLogin" method="post">
+<form role="form" action="/doLogin" method="post">
 <fieldset>
 <div class="form-group">
 <input class="form-control" placeholder="username" name="username" type="text" autofocus>

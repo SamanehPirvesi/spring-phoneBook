@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.example.phonebook.model.Contact;
 import com.example.phonebook.model.User;
-import com.example.phonebook.service.ContactService;
 import com.example.phonebook.service.UserService;
 
 
@@ -23,9 +20,7 @@ import com.example.phonebook.service.UserService;
 public class PhoneBookController {
 	 @Autowired
 	 private UserService userService;
-	 @Autowired
-	 private ContactService contactService;
-	
+	 
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String getIndex() {
@@ -48,12 +43,12 @@ public class PhoneBookController {
 		ModelAndView model =null;
 		if( readedUser != null && readedUser.getPassword().equals(u.getPassword())) {
 			model=new ModelAndView("userHome");
+			userService.updateLoggedIn(true,readedUser.getUserId());
 			model.addObject("username",u.getUsername());
 			
 			
 		}else { 
 			
-		//	userService.updateLoggedIn(readedUser.getUserId(),true);
 			model=new ModelAndView("login");
 		}
            			
@@ -68,10 +63,11 @@ public class PhoneBookController {
 	}
 	
 	
-		@RequestMapping(value="/doLogout", method=RequestMethod.GET)
-		public ModelAndView doLogout() {
+		@RequestMapping(value="/doLogout/{username}", method=RequestMethod.GET)
+		public ModelAndView doLogout(@PathVariable("username") String username) {
 			ModelAndView model=new ModelAndView("login");
-					
+			User readedUser = userService.getUserByUserName(username);
+			userService.updateLoggedIn(false,readedUser.getUserId());		
 			return model;
 		}
 }

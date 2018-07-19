@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import com.example.phonebook.model.Contact;
@@ -32,14 +31,8 @@ public class UserService {
 	public List<Contact> getListOfContact(long id){
 		return userRepository.listOfContactForUser(id);
 	}
-//	public boolean updateUserById(long id, String name) {
-//		return userRepository.updateById(id, name);
-//	}
-//	public boolean updatePassworldByUsername(String username, String password) {
-//		return userRepository.updatePasswordByUsername(username, password);
-//	}
-	public void updateLoggedIn( long userId, boolean loggedIn) {
-		 userRepository.updateLoggedIn(userId, loggedIn);
+public void updateLoggedIn(boolean loggedIn,long userId) {
+		 userRepository.updateLoggedIn(loggedIn,userId);
 	}
 	public void deleteUser(User user) {
 		 userRepository.delete(user);

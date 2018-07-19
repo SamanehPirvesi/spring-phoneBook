@@ -2,6 +2,8 @@ package com.example.phonebook.repository;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -14,14 +16,12 @@ import com.example.phonebook.model.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
 	public User findByUsername(String username) ;
-	//public boolean updateById(long id, String name) ;
 	@Query("select c from Contact c where user_userId=id") 
-	 public List<Contact> listOfContactForUser(@Param("id") long id);
-
+	public List<Contact> listOfContactForUser(@Param("id") long id);
+		
 	@Modifying
-    @Query("UPDATE User u SET u.isLoggedIn =:loggedin WHERE u.userId=:userId")
-  public void updateLoggedIn(@Param("userId") long userId, @Param("loggedin") boolean loggedIn);
-
-	
+	@Transactional
+    @Query("update User u set u.isLoggedIn= ?1 where u.userId= ?2")
+  public void updateLoggedIn( boolean loggedIn , long userId);
 
 }
